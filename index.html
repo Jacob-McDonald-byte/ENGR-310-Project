@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lean Lifter — AI-Powered Lifting Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">Lean<span>Lifter</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#early-access" class="nav-cta">Get Early Access</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          AI-Powered Lifting Tracker
+        </div>
+
+        <h1>Lift Smarter.<br /><span class="accent">Grow Faster.</span></h1>
+
+        <p class="hero-sub">
+          Lean Lifter analyzes every rep, tracks your nutrition, and delivers
+          personalized coaching that adapts to you — so you never plateau again.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#early-access" class="btn btn-primary">Get Early Access</a>
+          <a href="how-it-works.html" class="btn btn-outline">See How It Works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Core Features</span>
+          <h2>Everything You Need to <span class="accent">Optimize</span> Your Training</h2>
+          <p>One app that replaces your notebook, your calculator, and your guesswork.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🏋️</span>
+            <h3>AI Lift Analysis</h3>
+            <p>Log your lifts and receive instant, AI-driven feedback on your form, volume, and progression patterns — every single session.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">🥗</span>
+            <h3>Smart Diet Tracking</h3>
+            <p>Sync your macros and calories. Lean Lifter correlates your nutrition with your performance and adjusts targets as you progress.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📈</span>
+            <h3>Adaptive Programming</h3>
+            <p>Your plan evolves with you. Our AI rewrites your program week over week based on real recovery data and your stated goals.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <h3>Personalized Feedback</h3>
+            <p>Get specific coaching cues after every workout — not generic tips. Lean Lifter knows your weaknesses and targets them.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <h3>Deep Progress Analytics</h3>
+            <p>Visualize your strength curves, volume trends, and body composition over time with clear, actionable charts.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">🔄</span>
+            <h3>Continuous Adaptation</h3>
+            <p>Tell the AI when life gets busy or when you want to push harder. It recalibrates instantly, keeping you on track no matter what.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EMAIL CAPTURE ========== -->
+    <section id="early-access">
+      <div class="container">
+        <div class="email-capture">
+          <span class="section-label">Limited Beta Access</span>
+          <h2>Be the First to <span class="accent">Train Smarter</span></h2>
+          <p>Join the waitlist and get early access before public launch — plus a free 30-day premium trial.</p>
+
+          <form id="captureForm" novalidate>
+            <div class="form-row">
+              <input
+                type="text"
+                id="captureName"
+                class="form-input"
+                placeholder="Your Name"
+                autocomplete="name"
+                required
+              />
+              <input
+                type="email"
+                id="captureEmail"
+                class="form-input"
+                placeholder="Your Email Address"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="btn btn-primary form-submit">Claim My Spot →</button>
+            </div>
+            <p class="form-confirm" id="captureConfirm">
+              🎉 You're on the list! We'll be in touch soon.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo">Lean<span>Lifter</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Lean Lifter. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ========== JS ========== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Supabase client
+    const { createClient } = supabase;
+    const sb = createClient(
+      'https://rzgmmatuwchjwtkiqass.supabase.co',
+      'sb_publishable_B9Lb2Wta8IjQjRBYjWfc4Q_U0d4LqHO'
+    );
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Email capture form
+    const form    = document.getElementById('captureForm');
+    const nameEl  = document.getElementById('captureName');
+    const emailEl = document.getElementById('captureEmail');
+    const confirm = document.getElementById('captureConfirm');
+
+    // Add error element to the form
+    const errMsg = document.createElement('p');
+    errMsg.className = 'form-confirm';
+    errMsg.style.cssText = 'background:rgba(255,77,77,0.1);border-color:rgba(255,77,77,0.3);color:#ff7070;';
+    form.appendChild(errMsg);
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      [nameEl, emailEl].forEach(el => el.classList.remove('error'));
+      errMsg.classList.remove('visible');
+
+      let valid = true;
+      if (!nameEl.value.trim()) { nameEl.classList.add('error'); valid = false; }
+      if (!emailEl.value.trim() || !emailEl.value.includes('@')) {
+        emailEl.classList.add('error'); valid = false;
+      }
+      if (!valid) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const { error } = await sb
+        .from('signups')
+        .insert({ name: nameEl.value.trim(), email: emailEl.value.trim() });
+
+      if (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Claim My Spot →';
+        errMsg.textContent = '⚠️ Something went wrong. Please try again.';
+        errMsg.classList.add('visible');
+      } else {
+        form.querySelectorAll('input, button').forEach(el => el.disabled = true);
+        confirm.classList.add('visible');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Lean Lifter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">Lean<span>Lifter</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="index.html#early-access" class="nav-cta">Get Early Access</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== PAGE HERO ========== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Get In Touch</span>
+        <h1>We'd Love to <span class="accent">Hear From You</span></h1>
+        <p>Questions, feedback, partnership ideas, or just want to say hi — we're here.</p>
+        <div class="divider"></div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section>
+      <div class="container">
+        <div class="contact-wrapper">
+
+          <!-- Left: info -->
+          <div class="contact-info">
+            <h2>Let's <span class="accent">Connect</span></h2>
+            <p>
+              Whether you're a potential beta tester, a coach looking to partner with us,
+              a journalist covering fitness tech, or just someone curious about the project —
+              we read every message and reply personally.
+            </p>
+
+            <div class="contact-detail">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <h4>Email</h4>
+                <p>hello@leanlifter.app</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-icon">💬</span>
+              <div>
+                <h4>Response Time</h4>
+                <p>We reply within 1–2 business days.</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-icon">🤝</span>
+              <div>
+                <h4>Partnerships</h4>
+                <p>Coaches, gyms, and creators — reach out about collaboration opportunities.</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-icon">🐛</span>
+              <div>
+                <h4>Beta Feedback</h4>
+                <p>Beta tester? We especially want to hear your bugs, gripes, and ideas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form card -->
+          <div class="contact-form-card">
+            <h3>Send a Message</h3>
+
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div>
+                  <label for="contactName" style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem; font-weight:500;">Full Name</label>
+                  <input
+                    type="text"
+                    id="contactName"
+                    class="form-input"
+                    placeholder="Jane Smith"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="contactEmail" style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem; font-weight:500;">Email Address</label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    class="form-input"
+                    placeholder="jane@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="contactSubject" style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem; font-weight:500;">Subject <span style="color:var(--text-muted); font-weight:400;">(optional)</span></label>
+                  <input
+                    type="text"
+                    id="contactSubject"
+                    class="form-input"
+                    placeholder="Beta feedback, partnership, etc."
+                  />
+                </div>
+
+                <div>
+                  <label for="contactMessage" style="display:block; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem; font-weight:500;">Message</label>
+                  <textarea
+                    id="contactMessage"
+                    class="form-input"
+                    placeholder="Tell us what's on your mind..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
+              </div>
+
+              <p class="form-confirm" id="contactConfirm">
+                ✅ Message sent! We'll get back to you within 1–2 business days.
+              </p>
+
+              <p id="contactError" style="display:none; margin-top:1rem; padding:0.75rem 1rem; background:rgba(255,77,77,0.1); border:1px solid rgba(255,77,77,0.3); border-radius:var(--radius); color:#ff7070; font-size:0.9rem;">
+                Please fill in your name, email, and message before submitting.
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA STRIP ========== -->
+    <section style="background: var(--bg-card); border-top: 1px solid var(--border); padding: 4rem 0; text-align: center;">
+      <div class="container">
+        <span class="section-label">Not ready to message?</span>
+        <h2 style="margin-bottom: 0.75rem;">Join the <span class="accent">Waitlist</span> Instead</h2>
+        <p style="margin-bottom: 2rem;">Get early access and updates delivered directly to your inbox.</p>
+        <a href="index.html#early-access" class="btn btn-primary">Claim My Spot →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo">Lean<span>Lifter</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Lean Lifter. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Contact form
+    const form    = document.getElementById('contactForm');
+    const nameEl  = document.getElementById('contactName');
+    const emailEl = document.getElementById('contactEmail');
+    const msgEl   = document.getElementById('contactMessage');
+    const confirm = document.getElementById('contactConfirm');
+    const errEl   = document.getElementById('contactError');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      [nameEl, emailEl, msgEl].forEach(el => el.classList.remove('error'));
+      errEl.style.display = 'none';
+
+      let valid = true;
+
+      if (!nameEl.value.trim()) { nameEl.classList.add('error'); valid = false; }
+      if (!emailEl.value.trim() || !emailEl.value.includes('@')) { emailEl.classList.add('error'); valid = false; }
+      if (!msgEl.value.trim()) { msgEl.classList.add('error'); valid = false; }
+
+      if (!valid) {
+        errEl.style.display = 'block';
+        return;
+      }
+
+      form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+      confirm.classList.add('visible');
+    });
+  </script>
+
+</body>
+</html>
