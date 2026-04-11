@@ -328,6 +328,14 @@
 
         <div class="ai-demo-widget">
 
+          <!-- API Key entry -->
+          <div id="apiKeyBar" style="padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border); background: var(--bg-card-2); display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <label for="apiKeyInput" style="font-size: 0.78rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap;">Your Anthropic API Key</label>
+            <input type="password" id="apiKeyInput" class="form-input" placeholder="sk-ant-api03-…" style="flex: 1; min-width: 220px; font-family: monospace; font-size: 0.88rem;" autocomplete="off" />
+            <button id="apiKeySave" class="btn btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">Save Key</button>
+            <p id="apiKeyStatus" style="width: 100%; font-size: 0.8rem; margin: 0; display: none;"></p>
+          </div>
+
           <!-- Tab navigation -->
           <div class="tab-nav" role="tablist">
             <button class="tab-btn active" data-tab="log" role="tab">🏋️ Log a Lift</button>
@@ -552,7 +560,30 @@
     // ══════════════════════════════════════
     //  AI DEMO
     // ══════════════════════════════════════
-    const ANTHROPIC_API_KEY = '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';
+    let ANTHROPIC_API_KEY = '';
+
+    // ── API Key input ──
+    const apiKeyInput  = document.getElementById('apiKeyInput');
+    const apiKeySave   = document.getElementById('apiKeySave');
+    const apiKeyStatus = document.getElementById('apiKeyStatus');
+
+    function setKeyStatus(msg, ok) {
+      apiKeyStatus.style.display = 'block';
+      apiKeyStatus.style.color   = ok ? 'var(--accent)' : '#ff7070';
+      apiKeyStatus.textContent   = msg;
+    }
+
+    apiKeySave.addEventListener('click', () => {
+      const val = apiKeyInput.value.trim();
+      if (!val.startsWith('sk-ant-')) {
+        setKeyStatus('⚠️ That doesn\'t look like a valid Anthropic API key — it should start with sk-ant-', false);
+        return;
+      }
+      ANTHROPIC_API_KEY = val;
+      apiKeyInput.value = '';
+      apiKeyInput.placeholder = '●●●●●●●●●●●● (key saved)';
+      setKeyStatus('✓ API key saved — all tabs are ready to use.', true);
+    });
 
     // ── Tab switching ──
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -566,6 +597,7 @@
 
     // ── Anthropic API call ──
     async function callClaude(messages, systemPrompt, maxTokens = 1024) {
+      if (!ANTHROPIC_API_KEY) throw new Error('Please enter your Anthropic API key at the top of the demo panel first.');
       const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
